@@ -2,6 +2,44 @@
 
 #### 介绍
 slider有刻度时间滑杆，适配iPad ,适用于教育行业的一个时间使用
+/**
+* 使用示例说明:
+*
+
+       #import "SHSetGoalView.h"
+       @property (nonatomic, strong) SHSetGoalView *setGoalView;
+
+       - (void)viewDidLoad {
+           [super viewDidLoad];
+            self.view.backgroundColor = [UIColor whiteColor];
+            [self.view addSubview:self.setGoalView];
+       }
+ 
+ 
+       #pragma mark -
+       #pragma mark - Getter Method
+       - (SHSetGoalView *)setGoalView{
+           if (!_setGoalView) {
+               _setGoalView = [[SHSetGoalView alloc] initWithFrame:CGRectMake(0, 100, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
+               __weak typeof(self) weakSelf = self;
+               _setGoalView.datePickerBlock = ^(UIView * _Nonnull datePicker) {
+                    [weakSelf.view addSubview:datePicker];
+               };
+           }
+           return _setGoalView;
+       }
+
+    
+/**
+* 注意点 - 布局为 dome 布局,项目使用要x调细节
+        - 依赖 第三方 轻量级 布局 Masonry ,很低,可以不用
+        -
+
+* 反馈及联系方式:
+*          QQ群号:  807236138
+*          Email : 1224614774@qq.com
+
+**/
 
 #### 软件架构
 软件架构说明
